@@ -1,14 +1,9 @@
-<script type="text/javascript">
-  function check(cb, sample) {
-    if (cb.checked) {
-      new Audio(sample).play()
-    }
-  }
-</script>
+<form method="post">
+  <input type="submit" name="Create" value="Create" />
+</form>
 
 <?php
   ini_set('error_reporting', E_ALL);
   ini_set('display_errors', true);
-  include "point.php";
-  include "sample-track.php";
+  include "mysql-test.php";
 ?>
