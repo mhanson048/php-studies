@@ -18,12 +18,12 @@
   ini_set('display_errors', true);
 
   include "classTest.php";
-  use Studies\Test\TestC as ct;
+  use Studies\NS as nsst;
 
-  $test = new ct;
-  echo $test->getIndex();
-  $test->increment();
-  echo $test->getIndex();
+  $testClass = new nsst\TestClass;
+  echo $testClass->getIndex();
+  $testClass->increment();
+  echo $testClass->getIndex().'<div>&nbsp;</div>';
   
   include "mysql-test.php";
 

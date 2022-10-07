@@ -1,11 +1,11 @@
 <?php
 
-namespace Studies\Test;
+namespace Studies\NS;
 
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', true);
 
-class TestC {
+class TestClass {
   public $index = 1;
 
   public function increment() {
