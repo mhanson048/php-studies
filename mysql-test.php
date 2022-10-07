@@ -1,3 +1,13 @@
+<style>
+  .recordTable {
+    border-collapse: collapse;
+  }
+
+  .recordTable td {
+    border: thin solid lightgray;"
+  }
+</style>
+
 <?php
 
   $servername = "localhost";
@@ -13,23 +23,44 @@
   $selectRecords = "Select * From Records";
 
   $records = $conn->query($selectRecords);
-  if ($records->num_rows > 0) {
-    while ($row = $records->fetch_assoc()) {
-      $recordRow = "id: " . $row["id"] . " - field1: ";
-      $recordRow .= $row["field1"] . " - field2: ";
-      $recordRow .= $row["field2"] . " ";
 
-      $recordRow .= '<form method="post" style="display:inline-block;">';
-      $recordRow .= '<input type="submit" name="Delete" value="' . $row["id"] . '" />';
-      $recordRow .= '</form>' . '<br>';
-      echo $recordRow;
-    }
+  $query = array();
+  while ($query[] = mysqli_fetch_assoc($records));
+  array_pop($query);
+
+  echo "<table class='recordTable'>";
+  echo "<tr>";
+  foreach ($query[0] as $key => $value) {
+    echo "<td>";
+    echo $key;
+    echo "</td>";
   }
+  echo "<td>Delete</td>";
+  echo "</tr>";
 
-  $createRecords = "INSERT INTO Records (field1, field2)
-    VALUES ('field1', 'field2')";
+  foreach ($query as $row) {
+    echo "<tr>";
+    foreach ($row as $column) {
+      echo "<td>";
+      echo $column;
+      echo "</td>";
+    }
+    echo "<td>";
+    echo '<form method="post" style="display:inline-block;">';
+    echo '<input type="hidden" name="DeleteVal" value="' . $row["id"] . '" />';
+    echo '<input type="submit" name="Delete" value="Delete" />';
+    echo '</form></td>';
+    echo "</tr>";
+  }
+  echo "</table>";
 
   if(isset($_POST['Create'])) {
+    echo $_POST['field1'];
+    $field1 = $_POST['field1'];
+    $field2 = $_POST['field2'];
+    $createRecords = "INSERT INTO Records (field1, field2)";
+    $createRecords .= "VALUES ('" . $field1 . "', '" . $field2 . "')";
+
     if ($conn->query($createRecords) === TRUE) {
         echo "MySQL Connection Established";
     } else {
@@ -37,11 +68,9 @@
     }
   }
 
-  $deleteRecord = 'Delete From Records Where id = ';
-
-  #var_dump($_POST['Delete'])
   if(isset($_POST['Delete'])) {
-    if ($conn->query($deleteRecord . $_POST['Delete']) === TRUE) {
+    $deleteRecord = 'Delete From Records Where id = ';
+    if ($conn->query($deleteRecord . $_POST['DeleteVal']) === TRUE) {
         echo "Record Deleted";
     } else {
         echo "Error: " . $deleteRecords . "<br>" . $conn->error;
