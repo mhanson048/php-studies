@@ -13,3 +13,4 @@ trait TraitTest {
     return $this->ipAddress;
   }
 }
+

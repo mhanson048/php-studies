@@ -26,3 +26,4 @@ class ClosureClass {
     echo $this->responseBody;
   }
 }
+

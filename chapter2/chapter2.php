@@ -35,4 +35,3 @@
   });
   //$closCallback->dispatch('/users/Josh');
 
-?>
