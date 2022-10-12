@@ -1,30 +1,22 @@
-<form method="post">
-  <label>
-    Field 1
-  </label>
-  <input type="text" name="field1" />
+<?php
+include 'styles.php';
+?>
 
-  <label>
-    Field 2
-  </label>
-  <input type="text" name="field2" />
-  
-  <input type="submit" name="Create" value="Create" />
-</form>
+<link rel="stylesheet" href="styles.php" type="text/css">
+
+<div>
+  <a href="mysql-test.php">MySQL</a>
+</div>
+<div>
+  <a href="chapter2/chapter2.php">Chapter 2</a>
+</div>
+<div class="gitLink">
+  <a href="https://github.com/mhanson048/php-studies">GitHub</a>
+</div>
 
 <?php
 
   ini_set('error_reporting', E_ALL);
   ini_set('display_errors', true);
-
-  include "classTest.php";
-  use Studies\NS as nsst;
-
-  $testClass = new nsst\TestClass;
-  echo $testClass->getIndex();
-  $testClass->increment();
-  echo $testClass->getIndex().'<div>&nbsp;</div>';
-  
-  include "mysql-test.php";
 
 ?>

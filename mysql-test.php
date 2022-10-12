@@ -3,10 +3,40 @@
     border-collapse: collapse;
   }
 
-  .recordTable td {
-    border: thin solid lightgray;"
+  .recordTable td, th {
+    border: thin solid lightgray;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .recordTable form {
+    margin: 0;
+  }
+
+  .fieldForm {
+    padding-top: 20px;
+  }
+
+  .field2 {
+    padding-left: 20px;
   }
 </style>
+
+<div>&nbsp;</div>
+
+<form class="fieldForm" method="post">
+  <label>
+    Field 1
+  </label>
+  <input type="text" name="field1" />
+
+  <label class="field2">
+    Field 2
+  </label>
+  <input type="text" name="field2" />
+  
+  <input type="submit" name="Create" value="Create" />
+</form>
 
 <?php
 
@@ -31,11 +61,11 @@
   echo "<table class='recordTable'>";
   echo "<tr>";
   foreach ($query[0] as $key => $value) {
-    echo "<td>";
+    echo "<th>";
     echo $key;
-    echo "</td>";
+    echo "</th>";
   }
-  echo "<td>Delete</td>";
+  echo "<th>Delete</th>";
   echo "</tr>";
 
   foreach ($query as $row) {
