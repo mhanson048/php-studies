@@ -29,7 +29,8 @@
   include "bindToTest.php";
   use Studies\ClosCallback as cc;
   $closCallback = new cc\ClosureClass();
-  $closCallback->addRoute('/users/Josh', function() {
+  $closCallback->addRoute('/users/Josh', function()
+  {
     $this->responseContentType = 'application/json;charset=utf8';
     $this->responseBody = '<div>{name: Josh}</div>';
   });

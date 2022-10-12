@@ -4,17 +4,19 @@ namespace Studies\NS;
 
 include "traitTest.php";
 
-class TestClass {
-
+class TestClass
+{
   use TraitTest;
 
   public $index = 1;
 
-  public function increment() {
+  public function increment()
+  {
     $this->index++;
   }
 
-  public function getIndex() {
+  public function getIndex()
+  {
     return $this->index;
   }
 }

@@ -2,14 +2,17 @@
 
 namespace Studies\NS;
 
-trait TraitTest {
+trait TraitTest
+{
   protected $ipAddress;
 
-  public function setIP($ip) {
+  public function setIP($ip)
+  {
     $this->ipAddress = $ip;
   }
 
-  public function getIP() {
+  public function getIP()
+  {
     return $this->ipAddress;
   }
 }
